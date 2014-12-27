@@ -14,9 +14,9 @@ body {
 
 .header-image {
     display: block;
+    background: url('../images/header-image.png') no-repeat center center scroll;
     width: 100%;
     text-align: center;
-    background: url('../images/header-image.png') no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -40,7 +40,7 @@ body {
 }
 
 .featurette-divider {
-    margin: 40px 0;
+    margin: 50px 0;
 }
 
 .featurette {
@@ -138,6 +138,46 @@ body {
 
 #about_container p:nth-of-type(2) {
     margin-bottom: 20px;
+}
+
+#essentials_header {
+    background: url('../images/placeholder5.png') no-repeat center center scroll;
+}
+
+#essentials_headline {
+    padding: 50px 0;
+}
+
+#essentials_headline h2 {
+    margin-bottom: 45px;
+    font-family: Hiragino Kaku Gothic ProN, Sans-Serif;
+    font-size: 50px;
+    color: #fff;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+}
+
+.essentials_container {
+    color: #fff;
+    text-align: left;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+}
+
+.essentials_container h3 {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #cbcbcb;
+    font-family: 'Raleway', sans-serif;
+}
+
+.essentials_container span:first-of-type {
+    font-size: 40px;
+}
+
+.essentials_container span + span {
+    color: #e1e1e1;
+}
+
+.essentials_container + .essentials_container {
+    margin-top: 50px;
 }
 
 footer {
