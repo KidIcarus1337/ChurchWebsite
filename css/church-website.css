@@ -180,15 +180,25 @@ body {
     margin-top: 50px;
 }
 
+#contact_wrapper_a {
+    width: 100%;
+    border-bottom: 1px solid #e7e7e7;
+}
+
 #contact_headline {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #dddddd;
     text-align: center;
 }
 
-.contact_section {
+#contact_wrapper_b {
+    width: 100%;
+    background-color: #2354ff;
+}
 
+#contact_section {
+    color: #fff;
 }
 
 #map {
