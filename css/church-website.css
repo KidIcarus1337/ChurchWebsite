@@ -180,6 +180,21 @@ body {
     margin-top: 50px;
 }
 
+#contact_headline {
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+}
+
+.contact_section {
+
+}
+
+#map {
+    height: 500px;
+}
+
 footer {
     margin: 50px 0;
     color: #c4c4c4;
