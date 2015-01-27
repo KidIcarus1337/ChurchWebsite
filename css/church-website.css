@@ -281,7 +281,7 @@ body {
 #prev_classes {
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
-    background-color: #f8f8f8;
+    background: url("../images/list_background_pattern.png");
 }
 
 .prev_classes_list {
@@ -295,7 +295,12 @@ body {
     line-height: 2.5;
 }
 
-.prev_classes_list li:not(:nth-child(10)) {
+.prev_classes_list a {
+    color: #333;
+    text-decoration: none;
+}
+
+.prev_classes_list a:not(:nth-child(10)) li {
     border-bottom: 1px solid #e7e7e7;
 }
 

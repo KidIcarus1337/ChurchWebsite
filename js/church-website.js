@@ -50,10 +50,24 @@ $(function() {
         }
     });
 
+    var $prev_classes = $("#prev_classes > div");
+    var alphabeticallyOrderedDivs = $prev_classes.sort(function (a, b) {
+        return $(a).find("li").text() > $(b).find("li").text();
+    });
+    $("#prev_classes").html(alphabeticallyOrderedDivs);
+
     $(".slick_carousel").slick({
         infinite: true,
         slidesToShow: 2,
         slidesToScroll: 2,
         dots: true
+    });
+
+    $(".prev_classes_list li").hover(function() {
+        $(this).css({"background-color":"#F0F0F0"});
+    });
+
+    $(".prev_classes_list li").on("mouseup mouseleave", function() {
+        $(this).css({"background-color":"transparent"})
     });
 });
