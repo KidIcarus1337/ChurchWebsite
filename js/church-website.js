@@ -13,6 +13,7 @@ $(function() {
         $(this).css({"color":"#c3c3c3"})
     });
 
+    /* Resources nav switch */
     $(".nav_section li").click(function() {
         if (!$(this).hasClass("nav_active")) {
             var $this = $(this);
@@ -50,12 +51,32 @@ $(function() {
         }
     });
 
-    var $prev_classes = $("#prev_classes > div");
-    var alphabeticallyOrderedDivs = $prev_classes.sort(function (a, b) {
-        return $(a).find("li").text() > $(b).find("li").text();
-    });
-    $("#prev_classes").html(alphabeticallyOrderedDivs);
+    /* Alphabetically order previous class materials list */
+    var $list = $(".prev_classes_list");
+    var $listLi = $("a", $list);
 
+    $listLi.sort(function (a, b) {
+        var keyA = $(a).text();
+        var keyB = $(b).text();
+        return (keyA > keyB) ? 1 : -1;
+    });
+
+    var i = 1;
+    var appendList = $("#prev_classes > div:nth-of-type(" + i + ") ul");
+
+    $(".prev_classes_list").html("");
+
+    $.each($listLi, function (index, row) {
+        if ($("#prev_classes > div:nth-of-type(" + i + ") ul li").length < 10) {
+            $(appendList).append(row);
+        } else {
+            i++;
+            appendList = $("#prev_classes > div:nth-of-type(" + i + ") ul");
+            $(appendList).append(row);
+        }
+    });
+
+    /* Initiate slick slider */
     $(".slick_carousel").slick({
         infinite: true,
         slidesToShow: 2,
@@ -63,6 +84,32 @@ $(function() {
         dots: true
     });
 
+    /* Classes search function */
+    $("#prev_classes_search").keyup(function() {
+        var search_value = $(this).val();
+        var classes_results = [];
+        $.each($listLi, function(index, row) {
+            console.log(row);
+            if (row.text().toLowerCase().indexOf(search_value.toLowerCase()) >= 0) {
+                classes_results.append(row);
+            }
+        });
+        if (!classes_results.length > 0) {
+            $("#prev_classes").html("<h2 style='vertical-align:middle'>No Results</h2>");
+        } else {
+            $("#prev_classes").html("<div><ul class='prev_classes_list'></ul></div>");
+            $.each(classes_results, function(index, row) {
+                if ($(".prev_classes_list:last-of-type").length < 10) {
+                    $(".prev_classes_list:last-of-type").append(row)
+                } else {
+                    $("#prev_classes").append("<div><ul class='prev_classes_list'></ul></div>");
+                    $(".prev_classes_list:last-of-type").append(row)
+                }
+            });
+        }
+    });
+
+    /* Button CSS Interactions */
     $(".prev_classes_list li").hover(function() {
         $(this).css({"background-color":"#F0F0F0"});
     });
